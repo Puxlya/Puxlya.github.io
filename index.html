@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>You trolled.</title>
-<style>
+    <title>You trolled</title>
+</head>
+<body>
+    <style>
 body {
             background-color: violet;
    }
-</style>
-</head>
-<body>
-    <h6>Соси пенис</h6>
-    <audio autoplay>
+    </style>
+    <div style="text-align:center;">
+        <img src="картинка.jpg" alt="картинка" />
+    </div>
+
+    <audio autoplay loop>
         <source src="музыка.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
-    <img src="картинка.jpg" style="display:block; margin:auto;">
+    <script>
+        document.addEventListener('click', function() {
+            const audio = new Audio('музыка.mp3');
+            audio.play();
+        });
+    </script>
 </body>
-</html
+</html>
