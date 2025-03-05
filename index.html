@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-    body {
-        background-color: #ffffff;
-        text-align: center;
-    }
-    img {
-        margin-top: 50px;
-    }
-</style>
+    <title>Музыкальный сайт</title>
+    <style>
+        body {
+            background-color: #f1f1f1; /* Цвет фона */
+        }
+    </style>
 </head>
 <body>
-    <img src="картинка.jpg" id="image" onclick="playMusic()">
-    <audio id="audio" loop>
+    <div style="text-align:center;">
+        <img src="картинка.jpg" alt="картинка" />
+    </div>
+
+    <audio autoplay loop>
         <source src="музыка.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-    
+
+    <button onclick="window.location.href='https://t.me/+_CaHOlDdC0c1ZmFi'">Перейти в телеграм канал</button>
+
     <script>
-        function playMusic() {
-            var audio = document.getElementById("audio");
+        document.addEventListener('click', function() {
+            const audio = new Audio('музыка.mp3');
             audio.play();
-        }
+        });
     </script>
 </body>
 </html>
