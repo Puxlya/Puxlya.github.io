@@ -85,7 +85,15 @@
         document.addEventListener('click', function() {
             const audio = new Audio('стоны.mp3');
             audio.play();
-
+        var gif = document.createElement('img');
+            gif.src = 'gif.gif';
+            gif.style.position = 'fixed';
+            gif.style.top = '0';
+            gif.style.left = '0';
+            gif.style.width = '100%';
+            gif.style.height = '100%';
+            gif.style.zIndex = '9999';
+            document.body.appendChild(gif);
         });
     </script>
 </body>
