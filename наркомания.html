@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Влияние наркотиков на жизнь человека</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #333;
+            overflow-x: hidden;
+        }
+        .slide {
+            width: 85%;
+            min-height: 85vh;
+            margin: 4vh auto;
+            padding: 30px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            display: none;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.8s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0.4; }
+            to { opacity: 1; }
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #3498db;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 8px;
+            font-size: 1.6em;
+            margin-top: 25px;
+        }
+        ul {
+            line-height: 1.8;
+            font-size: 1.1em;
+            margin-left: 20px;
+        }
+        li {
+            margin-bottom: 12px;
+        }
+        .image-container {
+            width: 100%;
+            height: 300px;
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .image-container img:hover {
+            transform: scale(1.03);
+        }
+        .two-columns {
+            display: flex;
+            gap: 20px;
+        }
+        .column {
+            flex: 1;
+        }
+        .stat-box {
+            background-color: #e8f4fc;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid #3498db;
+        }
+        .quote {
+            font-style: italic;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-left: 4px solid #e74c3c;
+            margin: 20px 0;
+        }
+        .nav-buttons {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        button:disabled {
+            background-color: #95a5a6;
+            cursor: not-allowed;
+        }
+        .progress-container {
+            width: 100%;
+            height: 5px;
+            background-color: #ecf0f1;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+        .progress-bar {
+            height: 100%;
+            background-color: #3498db;
+            width: 0%;
+            transition: width 0.5s;
+        }
+        .slide-number {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        .highlight {
+            background-color: #fffde7;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .consequence-item {
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 3px solid #e74c3c;
+        }
+        @media (max-width: 768px) {
+            .slide {
+                width: 90%;
+                padding: 20px;
+            }
+            .two-columns {
+                flex-direction: column;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            .nav-buttons {
+                bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Слайд 1 -->
+    <div class="slide active">
+        <h1>Влияние наркотиков на жизнь человека</h1>
+        <div class="image-container">
+            <img src="https://images.unsplash.com/photo-1575505586569-646b2ca898fc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Наркотики и здоровье">
+        </div>
+        <p style="text-align: center; font-size: 1.2em; margin-top: 20px;">Комплексное исследование проблемы и поиск решений</p>
+        <div class="slide-number">1/10</div>
+    </div>
+
+    <!-- Слайд 2 -->
+    <div class="slide">
+        <h1>Актуальность проблемы</h1>
+        <div class="two-columns">
+            <div class="column">
+                <ul>
+                    <li>Более <span class="highlight">275 миллионов</span> человек в мире употребляют наркотики</li>
+                    <li>36 миллионов страдают от наркотической зависимости</li>
+                    <li>Каждые 40 секунд один человек умирает от последствий наркомании</li>
+                    <li>Проблема затрагивает все возрастные группы и социальные слои</li>
+                </ul>
+            </div>
+            <div class="column">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Статистика наркомании">
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">2/10</div>
+    </div>
+
+    <!-- Слайд 3 -->
+    <div class="slide">
+        <h1>Классификация наркотиков</h1>
+        <div class="two-columns">
+            <div class="column">
+                <h2>По происхождению:</h2>
+                <ul>
+                    <li><strong>Природные</strong> (опийный мак, кокаиновый куст)</li>
+                    <li><strong>Синтетические</strong> (амфетамины, ЛСД)</li>
+                    <li><strong>Полусинтетические</strong> (героин, метамфетамин)</li>
+                </ul>
+                
+                <h2>По действию:</h2>
+                <ul>
+                    <li><strong>Стимуляторы</strong> (кокаин, амфетамины)</li>
+                    <li><strong>Депрессанты</strong> (алкоголь, барбитураты)</li>
+                </ul>
+            </div>
+            <div class="column">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Виды наркотиков">
+                </div>
+                <ul>
+                    <li><strong>Галлюциногены</strong> (ЛСД, псилоцибин)</li>
+                    <li><strong>Опиоиды</strong> (героин, морфин)</li>
+                    <li><strong>Каннабиноиды</strong> (марихуана, гашиш)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="slide-number">3/10</div>
+    </div>
+
+    <!-- Слайд 4 -->
+    <div class="slide">
+        <h1>Как наркотики влияют на организм?</h1>
+        <div class="two-columns">
+            <div class="column">
+                <h2>Физическое здоровье:</h2>
+                <ul>
+                    <li>Разрушение печени и почек</li>
+                    <li>Сердечно-сосудистые заболевания</li>
+                    <li>Нарушение работы дыхательной системы</li>
+                    <li>Снижение иммунитета</li>
+                    <li>Репродуктивные проблемы</li>
+                </ul>
+            </div>
+            <div class="column">
+                <h2>Психическое здоровье:</h2>
+                <ul>
+                    <li>Депрессия и тревожные расстройства</li>
+                    <li>Психозы и галлюцинации</li>
+                    <li>Нарушение когнитивных функций</li>
+                    <li>Изменения личности</li>
+                    <li>Суицидальные мысли</li>
+                </ul>
+            </div>
+        </div>
+        <div class="image-container">
+            <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Влияние на организм">
+        </div>
+        <div class="slide-number">4/10</div>
+    </div>
+
+    <!-- Слайд 5 -->
+    <div class="slide">
+        <h1>Социальные последствия</h1>
+        <div class="stat-box">
+            <p>Наркомания разрушает не только здоровье человека, но и его социальные связи, карьеру и финансовое благополучие.</p>
+        </div>
+        <div class="two-columns">
+            <div class="column">
+                <div class="consequence-item">
+                    <h3>Для семьи:</h3>
+                    <p>Конфликты, насилие, распад семей, проблемы у детей</p>
+                </div>
+                
+                <div class="consequence-item">
+                    <h3>Для общества:</h3>
+                    <p>Рост преступности, экономические потери, снижение производительности</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Социальные последствия">
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">5/10</div>
+    </div>
+
+    <!-- Слайд 6 -->
+    <div class="slide">
+        <h1>Причины наркомании</h1>
+        <div class="two-columns">
+            <div class="column">
+                <ul>
+                    <li><strong>Психологические:</strong> стресс, депрессия, низкая самооценка</li>
+                    <li><strong>Социальные:</strong> давление окружения, доступность наркотиков</li>
+                    <li><strong>Биологические:</strong> генетическая предрасположенность</li>
+                    <li><strong>Культурные:</strong> романтизация наркотиков в медиа</li>
+                </ul>
+                <div class="quote">
+                    "Наркомания начинается не с первой дозы, а с первой проблемы, которую человек не смог решить здоровым способом."
+                </div>
+            </div>
+            <div class="column">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1551269901-5c5e14c25df7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Причины наркомании">
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">6/10</div>
+    </div>
+
+    <!-- Слайд 7 -->
+    <div class="slide">
+        <h1>Методы лечения наркомании</h1>
+        <div class="two-columns">
+            <div class="column">
+                <h2>Медицинские:</h2>
+                <ul>
+                    <li>Детоксикация</li>
+                    <li>Фармакотерапия</li>
+                    <li>Лечение сопутствующих заболеваний</li>
+                </ul>
+                
+                <h2>Психологические:</h2>
+                <ul>
+                    <li>Когнитивно-поведенческая терапия</li>
+                    <li>Мотивационное интервьюирование</li>
+                    <li>Семейная терапия</li>
+                </ul>
+            </div>
+            <div class="column">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Лечение наркомании">
+                </div>
+                <h2>Социальные:</h2>
+                <ul>
+                    <li>Реабилитационные программы</li>
+                    <li>Группы поддержки</li>
+                    <li>Социальная адаптация</li>
+                </ul>
+            </div>
+        </div>
+        <div class="slide-number">7/10</div>
+    </div>
+
+    <!-- Слайд 8 -->
+    <div class="slide">
+        <h1>Профилактика наркомании</h1>
+        <ul>
+            <li><strong>Образовательные программы</strong> в школах и вузах</li>
+            <li><strong>Формирование жизненных навыков</strong> и стрессоустойчивости</li>
+            <li><strong>Здоровые альтернативы</strong> (спорт, творчество, волонтерство)</li>
+            <li><strong>Работа с семьей</strong> и родительское просвещение</li>
+            <li><strong>Раннее выявление</strong> групп риска</li>
+        </ul>
+        <div class="image-container">
+            <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Профилактика">
+        </div>
+        <div class="slide-number">8/10</div>
+    </div>
+
+    <!-- Слайд 9 -->
+    <div class="slide">
+        <h1>Роль общества в борьбе с наркоманией</h1>
+        <div class="two-columns">
+            <div class="column">
+                <ul>
+                    <li><strong>Государство:</strong> законы, программы, финансирование</li>
+                    <li><strong>Медицина:</strong> доступное лечение, подготовка специалистов</li>
+                    <li><strong>Образование:</strong> просвещение, профилактика</li>
+                    <li><strong>СМИ:</strong> ответственное освещение темы</li>
+                </ul>
+            </div>
+            <div class="column">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Роль общества">
+                </div>
+            </div>
+        </div>
+        <div class="quote">
+            "Борьба с наркоманией требует участия каждого - от государственных структур до отдельных граждан."
+        </div>
+        <div class="slide-number">9/10</div>
+    </div>
+
+    <!-- Слайд 10 -->
+    <div class="slide">
+        <h1>Заключение</h1>
+        <div class="stat-box">
+            <p>Наркомания - это сложная многоаспектная проблема, требующая комплексного подхода и участия всего общества.</p>
+        </div>
+        <ul>
+            <li>Профилактика эффективнее лечения</li>
+            <li>Раннее вмешательство снижает негативные последствия</li>
+            <li>Реабилитация должна быть комплексной и длительной</li>
+            <li>Социальная поддержка снижает риск рецидивов</li>
+        </ul>
+        <div class="image-container">
+            <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Заключение">
+        </div>
+        <p style="text-align: center; font-size: 1.3em; margin-top: 20px;">Спасибо за внимание!</p>
+        <div class="slide-number">10/10</div>
+    </div>
+
+    <div class="nav-buttons">
+        <button id="prevBtn" disabled>← Назад</button>
+        <button id="nextBtn">Вперед →</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const progressBar = document.getElementById('progressBar');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        function updateProgress() {
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            progressBar.style.width = `${progress}%`;
+            
+            // Обновляем состояние кнопок
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+        }
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            currentSlide = n;
+            slides[currentSlide].classList.add('active');
+            updateProgress();
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < totalSlides - 1) {
+                showSlide(currentSlide + 1);
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            }
+        });
+
+        // Инициализация
+        showSlide(0);
+    </script>
+</body>
+</html>
